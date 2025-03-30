@@ -1,13 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const heading1 = React.createElement("h1", { key: "heading1" }, "h1 tag");
-const heading2 = React.createElement("h2", { key: "heading2" }, "h2 tag");
+const element = <span>This is an element</span>;
+const Title = () => (
+  <h1 className="title">{element}React functional component Title</h1>
+);
 
-const child = React.createElement("div", { id: "title" }, [heading1, heading2]);
-
-const parent = React.createElement("div", { id: "parent" }, child);
+const Heading = () => (
+  <div id="container">
+    <Title /> // Common used method
+    <Title></Title> // We can use like a tag
+    {Title()} // Its a js function we can call a funtion inside the curly braces
+    <h1 className="heading">React functional component heading</h1>
+  </div>
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(parent);
+root.render(<Heading />);
